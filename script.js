@@ -35,4 +35,32 @@ function playRound(computerSelection, playerSelection) {
     }
 }
 
-console.log(playRound(getComputerChoice(),getPlayerChoice()));
+function game() {
+    let winsPlayer=0,
+        winsComputer=0;
+    for (let i = 0; i < 5; i++) {
+        let decision = playRound(getComputerChoice(),getPlayerChoice());
+        console.log(decision);
+        if(decision.slice(0,8) === 'You Lose') {
+            ++winsComputer;
+        }
+        else if(decision.slice(0,7) === 'You Win') {
+            ++winsPlayer;
+        }
+        else {
+            ++winsComputer;
+            ++winsPlayer;
+        }
+        console.log(`Your score: ${winsPlayer}\nComputer's score: ${winsComputer}`);
+    }
+    if(winsComputer > winsPlayer) {
+        console.log('The computer won!');
+    }
+    else if(winsComputer < winsPlayer){
+        console.log('You won!');
+    }
+    else {
+        console.log('The game ended in a tie!');
+    }
+}
+game();
