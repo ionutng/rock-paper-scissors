@@ -12,7 +12,13 @@ function getPlayerChoice() {
     else if (choice.toLowerCase() === 'paper') {
         return 'paper';
     }
-    else return 'scissors';
+    else if (choice.toLowerCase() === 'scissors') {
+        return 'scissors';
+    }
+    else {
+        alert('Please choose between rock, paper or scissors.');
+        location.reload();
+    }
 }
 
 function playRound(computerSelection, playerSelection) {
@@ -54,10 +60,10 @@ function game() {
         console.log(`Your score: ${winsPlayer}\nComputer's score: ${winsComputer}`);
     }
     if(winsComputer > winsPlayer) {
-        console.log('The computer won!');
+        console.log('The computer won the game!');
     }
     else if(winsComputer < winsPlayer){
-        console.log('You won!');
+        console.log('You won the game!');
     }
     else {
         console.log('The game ended in a tie!');
